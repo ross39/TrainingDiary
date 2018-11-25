@@ -1,15 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
+export interface activity {
+  value: string;
+  viewValue: string;
+}
+
+export interface comment{
+	value: string;
+	viewValue: string;
+}
+
+/**
+ * @title List with selection
+ */
 @Component({
   selector: 'app-mainpage',
-  templateUrl: './mainpage.component.html',
-  styleUrls: ['./mainpage.component.css']
+  styleUrls: ['./mainpage.component.css'],
+  templateUrl: './mainpage.component.html'
 })
-export class MainpageComponent implements OnInit {
+export class MainpageComponent {
 
-  constructor() { }
+  activities: activity[] = [
+    {value: 'Running', viewValue: 'Running'},
+    {value: 'Rowing', viewValue: 'Rowing'},
+    {value: 'Cycling', viewValue: 'Cycling'}
+  ];
 
-  ngOnInit() {
+  comments: comment[] = [
+  	{value: 'Hard', viewValue: 'Hard'},
+  	{value: 'Medium', viewValue: 'Medium'},
+  	{value: 'Easy', viewValue: 'Easy'}
+  ];
+
+  more(){
+
   }
 
 }

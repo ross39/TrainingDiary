@@ -1,3 +1,35 @@
-<p>
-  mainpage works!
-</p>
+<div class="container">
+<div class="jumbotron">
+<form>
+  <h4>Select your activity</h4>
+  <mat-form-field>
+    <mat-select placeholder="Today's activity" [(ngModel)]="selectedValue" name="activity">
+      <mat-option *ngFor="let activity of activities" [value]="activity.value">
+        {{activity.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p> Good Job!: How did you find your {{selectedValue}} today? Comment below! </p>
+
+  <!-- Comment section -->
+  <form>
+    <h4>Comments about my {{selectedValue}}</h4>
+    <mat-form-field>
+      <mat-select placeholder="How difficult did you find it?">
+        <mat-option *ngFor="let comment of comments" [value]="comment.value">
+          {{comment.viewValue}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+  </form>
+ <button mat-raised-button (click)="more" color="primary">Want more activities?</button>
+</form>
+</div>
+</div>
+
+<div class="container">
+<div class="jumbotron">
+  <h4>Ok, Thats great! Now that we know you found your {{selectedValue}} {{comment.viewValue}} We can move onto the next step!</h4>
+  <p>As training is so individual we can't possible include every option. Therefore we include a box for you to write your own stuff!</p>
+</div>
+</div>
