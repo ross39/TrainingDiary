@@ -10,8 +10,8 @@ import { PostService } from '../services/post.service';
 export class ContactComponent implements OnInit {
 
   constructor(private service: PostService) { }
-   onAddPost(form: NgForm){
-   	 this.service.addPost(form.value.title, form.value.content).subscribe();
+   onAddPostOne(form: NgForm){
+   	 this.service.addPostOne(form.value.name, form.value.email, form.value.message).subscribe();
 
     console.log(form.value);
     form.resetForm();
