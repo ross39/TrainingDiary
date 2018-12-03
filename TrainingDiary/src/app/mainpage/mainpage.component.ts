@@ -1,15 +1,6 @@
-import {Component} from '@angular/core';
-
-export interface activity {
-  value: string;
-  viewValue: string;
-}
-
-export interface comment{
-	value: string;
-	viewValue: string;
-}
-
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from "@angular/forms";
+import {PostService} from '../services/post.service';
 /**
  * @title List with selection
  */
@@ -19,21 +10,17 @@ export interface comment{
   templateUrl: './mainpage.component.html'
 })
 export class MainpageComponent {
+constructor(private service:PostService) { }
+onAddPost(form: NgForm)
 
-  activities: activity[] = [
-    {value: 'Running', viewValue: 'Running'},
-    {value: 'Rowing', viewValue: 'Rowing'},
-    {value: 'Cycling', viewValue: 'Cycling'}
-  ];
+  onAddPost(form: NgForm) {
+	 if (!form.valid)
+      return;
+      console.log(form.value.date);
+    
+      this.service.addPost(form.value.title, form.value.content).subscribe();
 
-  comments: comment[] = [
-  	{value: 'Hard', viewValue: 'Hard'},
-  	{value: 'Medium', viewValue: 'Medium'},
-  	{value: 'Easy', viewValue: 'Easy'}
-  ];
-
-  more(){
-
+    console.log(form.value);
+    form.resetForm();
   }
-
 }

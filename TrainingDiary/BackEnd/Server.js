@@ -4,7 +4,8 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-const mongoDB = 'mongodb://ROSS26:5AJ6C9wimK8vLjM@ds163103.mlab.com:63103/angularproject';
+var mongoDB = 'mongodb://admin:hello123@ds239903.mlab.com:39903/lab5';
+
 mongoose.connect(mongoDB);
 
 var Schema = mongoose.Schema;
@@ -97,3 +98,4 @@ var server = app.listen(8081, function () {
    
    console.log("Example app listening at http://%s:%s", host, port)
 })
+

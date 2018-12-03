@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+	fullImagePathBarbell: string;
+	fullImagePathSwim: string;
 
-  constructor() { }
+  constructor() {
+  	this.fullImagePathBarbell = '/Images/barbell.jpg';
+  	this.fullImagePathSwim = '/Images/swim.jpg'
+   }
 
   ngOnInit() {
   }

@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import {PostService} from './services/post.service';
 import { MatInputModule,
   MatProgressSpinnerModule,
   MatListModule,
@@ -20,6 +21,9 @@ import { MatInputModule,
   MatToolbarModule,
   MatExpansionModule} from '@angular/material';
 import { LoginComponent } from './login/login.component';
+import { LogComponent } from './log/log.component';
+import { EditLogComponent } from './edit-log/edit-log.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 const appRoutes: Routes = [
   {
@@ -37,6 +41,18 @@ const appRoutes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'log',
+    component: LogComponent
+  },
+  {
+    path: 'editlog/:id',
+    component: EditLogComponent
+  },
+  {
+    path: 'feedback',
+    component: FeedbackComponent
   }
 ];
 
@@ -48,6 +64,9 @@ const appRoutes: Routes = [
     AboutComponent,
     ContactComponent,
     LoginComponent,
+    LogComponent,
+    EditLogComponent,
+    FeedbackComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -68,7 +87,7 @@ const appRoutes: Routes = [
   MatListModule,
   MatMenuModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

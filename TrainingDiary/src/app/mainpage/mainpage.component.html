@@ -1,35 +1,17 @@
-<div class="container">
-<div class="jumbotron">
-<form>
-  <h4>Select your activity</h4>
-  <mat-form-field>
-    <mat-select placeholder="Today's activity" [(ngModel)]="selectedValue" name="activity">
-      <mat-option *ngFor="let activity of activities" [value]="activity.value">
-        {{activity.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <p> Good Job!: How did you find your {{selectedValue}} today? Comment below! </p>
-
-  <!-- Comment section -->
-  <form>
-    <h4>Comments about my {{selectedValue}}</h4>
+<h3>How this works!</h3>
+<mat-card-content>Although it may seem lazy to just include a simple text area instead of more bells and whistles, I feel this is the best way to go. Many athletes want something that will record their training without having to go through loads of form fields. Essentially they just want to type it in and save it</mat-card-content>
+<mat-card>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
     <mat-form-field>
-      <mat-select placeholder="How difficult did you find it?">
-        <mat-option *ngFor="let comment of comments" [value]="comment.value">
-          {{comment.viewValue}}
-          </mat-option>
-        </mat-select>
+      <input matInput type="text" name="title" ngModel required minlength="3" #title="ngModel">
+      <mat-error *ngIf="title.invalid">Give your session a title.</mat-error>
     </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field>
+      <textarea matInput rows="4" name="content" ngModel required #content="ngModel"></textarea>
+      <mat-error *ngIf="content.invalid">Enter in the details of your session</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit" style="float:right">Save Post</button>
   </form>
- <button mat-raised-button (click)="more" color="primary">Want more activities?</button>
-</form>
-</div>
-</div>
-
-<div class="container">
-<div class="jumbotron">
-  <h4>Ok, Thats great! Now that we know you found your {{selectedValue}} {{comment.viewValue}} We can move onto the next step!</h4>
-  <p>As training is so individual we can't possible include every option. Therefore we include a box for you to write your own stuff!</p>
-</div>
-</div>
+</mat-card>
