@@ -29,7 +29,7 @@ export class EditLogComponent implements OnInit {
   onEditPost(form: NgForm) {
     this.service.updatePost(this.post._id, form.value.title, form.value.content).subscribe(() =>
     {
-      this.router.navigate(['/list']);
+      this.router.navigate(['/main']);
     });
   }
 }

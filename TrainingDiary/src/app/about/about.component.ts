@@ -10,8 +10,8 @@ export class AboutComponent implements OnInit {
 	fullImagePathSwim: string;
 
   constructor() {
-  	this.fullImagePathBarbell = '/Images/barbell.jpg';
-  	this.fullImagePathSwim = '/Images/swim.jpg'
+  	this.fullImagePathBarbell = 'assets/images/barbell.jpg';
+  	this.fullImagePathSwim = 'assets/images/swim.jpg'
    }
 
   ngOnInit() {
